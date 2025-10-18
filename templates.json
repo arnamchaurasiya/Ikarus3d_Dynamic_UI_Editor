@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "templates": [
+    {
+      "id": "template1",
+      "name": "Design Template",
+      "description": "A base design template including HTML, CSS, and image preview — ideal for dynamic UI customization and testing.",
+      "files": {
+        "html": "https://raw.githubusercontent.com/arnamchaurasiya/Ikarus3d_Dynamic_UI_Editor/main/Design%20Tempalte/index.html",
+        "css": "https://raw.githubusercontent.com/arnamchaurasiya/Ikarus3d_Dynamic_UI_Editor/main/Design%20Tempalte/styles.css",
+        "image": "https://raw.githubusercontent.com/arnamchaurasiya/Ikarus3d_Dynamic_UI_Editor/main/Design%20Tempalte/image.png"
+      },
+      "thumbnail": "https://raw.githubusercontent.com/arnamchaurasiya/Ikarus3d_Dynamic_UI_Editor/main/Design%20Tempalte/image.png",
+      "category": "base"
+    }
+  ]
+}
