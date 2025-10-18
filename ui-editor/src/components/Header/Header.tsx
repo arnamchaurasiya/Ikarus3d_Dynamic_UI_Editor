@@ -85,7 +85,7 @@ export function Header({
               >
                 Save Project
               </Button>
-              <Button
+              {/* <Button
                 leftSection={<Plus size={16} />}
                 variant="filled"
                 size="sm"
@@ -93,7 +93,7 @@ export function Header({
                 style={{ pointerEvents: 'none', cursor: 'normal' }}
               >
                 New Project
-              </Button>
+              </Button> */}
             </>
           )}
           {/* <UserMenu 

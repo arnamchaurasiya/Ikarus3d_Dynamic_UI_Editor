@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Tabs, ScrollArea } from '@mantine/core';
+import { Tabs, ScrollArea, Button, Group } from '@mantine/core';
 import { useAppSelector } from '../../hooks/redux';
 import { PrismCodeBlock } from './PrismCodeBlock';
 
@@ -11,7 +11,6 @@ interface CodeSectionProps {
 // Utility function to format code using Prettier
 const formatCode = async (code: string, parser: 'html' | 'css'): Promise<string> => {
   try {
-    // Dynamically import Prettier
     const prettier = await import('prettier');
     const parserHtml = await import('prettier/parser-html');
     const parserCss = await import('prettier/parser-postcss');
@@ -33,8 +32,22 @@ const formatCode = async (code: string, parser: 'html' | 'css'): Promise<string>
     return formatted;
   } catch (error) {
     console.warn('Failed to format code with Prettier:', error);
-    return code; // Return original code if formatting fails
+    return code;
   }
+};
+
+// ✅ Utility to export JSON file
+const exportJSON = (data: any, filename = 'ui-config.json') => {
+  const jsonString = JSON.stringify(data, null, 2);
+  const blob = new Blob([jsonString], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  
+  URL.revokeObjectURL(url);
 };
 
 export function CodeSection({ onDownload, onFullView }: CodeSectionProps) {
@@ -43,7 +56,6 @@ export function CodeSection({ onDownload, onFullView }: CodeSectionProps) {
   const [formattedHtml, setFormattedHtml] = useState<string>('');
   const [formattedCss, setFormattedCss] = useState<string>('');
 
-  // Format code when content changes
   useEffect(() => {
     const formatHtml = async () => {
       if (editorContent.bodyContent) {
@@ -65,6 +77,16 @@ export function CodeSection({ onDownload, onFullView }: CodeSectionProps) {
 
   return (
     <div style={{ padding: '16px' }}>
+      {/* Action Buttons */}
+      <Group  mb="md">
+        <Button color="blue" onClick={onFullView}>Full View</Button>
+        <Button color="green" onClick={onDownload}>Download Code</Button>
+        {/* ✅ New Button for JSON Export */}
+        <Button color="orange" onClick={() => exportJSON(editorContent)}>
+          Export JSON
+        </Button>
+      </Group>
+
       <Tabs value={activeTab} onChange={(value) => setActiveTab(value || 'html')}>
         <Tabs.List>
           <Tabs.Tab value="html">HTML</Tabs.Tab>
