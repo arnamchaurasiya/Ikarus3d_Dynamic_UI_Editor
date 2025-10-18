@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cozy Lounge Chair - Customizer</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="product-layout">
+        <!-- Left Side - Product Preview -->
+        <div class="product-preview">
+          <div class="thumbnail-strip">
+            <div class="thumbnail active">
+              <img
+                src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=100&h=100&fit=crop"
+                alt="Thumbnail 1"
+              />
+            </div>
+            <div class="thumbnail">
+              <img
+                src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=100&h=100&fit=crop"
+                alt="Thumbnail 2"
+              />
+            </div>
+            <div class="thumbnail">
+              <img
+                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=100&h=100&fit=crop"
+                alt="Thumbnail 3"
+              />
+            </div>
+            <div class="thumbnail">
+              <img
+                src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=100&h=100&fit=crop"
+                alt="Thumbnail 4"
+              />
+            </div>
+            <div class="thumbnail">
+              <img
+                src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=100&h=100&fit=crop"
+                alt="Thumbnail 5"
+              />
+            </div>
+          </div>
+
+          <div class="main-image-container">
+            <img src="./image.png" alt="Cozy Lounge Chair" class="main-image" />
+
+            <div class="control-buttons">
+              <button class="control-btn" title="Zoom">🔍</button>
+              <button class="control-btn" title="Rotate">↻</button>
+              <button class="control-btn" title="Fullscreen">⛶</button>
+              <button class="control-btn" title="More">+</button>
+            </div>
+          </div>
+
+          <button class="view-in-room">
+            <span>📐</span>
+            <span>View in your room</span>
+          </button>
+        </div>
+
+        <!-- Right Side - Customization Panel -->
+        <div class="customization-panel">
+          <div class="panel-header">
+            <h1 class="product-title">Cozy Lounge chair</h1>
+            <span class="customization-label">Customize your Chair</span>
+          </div>
+
+          <!-- Arms Option -->
+          <div class="option-section">
+            <label class="option-label">1. Arms</label>
+            <select class="dropdown">
+              <option>Fixed Arms</option>
+              <option>No Arms</option>
+              <option>Adjustable Arms</option>
+            </select>
+          </div>
+
+          <!-- Arms Finish -->
+          <div class="option-section">
+            <label class="option-label">2. Arms Finish</label>
+            <select class="dropdown">
+              <option>Select Finish</option>
+              <option selected>Brown Leather</option>
+              <option>Black Leather</option>
+              <option>Beige Fabric</option>
+            </select>
+            <div class="dropdown-info">Brown Leather</div>
+
+            <div class="color-section-label">Leather Shades</div>
+            <div class="color-grid">
+              <div class="color-swatch leather-brown"></div>
+              <div class="color-swatch brown-dark selected"></div>
+              <div class="color-swatch olive-green"></div>
+              <div class="color-swatch sage-green"></div>
+              <div class="color-swatch forest-green"></div>
+              <div class="color-swatch purple"></div>
+              <div class="color-swatch navy-blue"></div>
+              <div class="color-swatch steel-blue"></div>
+              <div class="color-swatch burgundy"></div>
+              <div class="color-swatch maroon"></div>
+              <div class="color-swatch teal"></div>
+            </div>
+
+            <div class="color-section-label">Silicon</div>
+            <div class="color-grid">
+              <div class="color-swatch charcoal"></div>
+              <div class="color-swatch moss"></div>
+              <div class="color-swatch sage-green"></div>
+              <div class="color-swatch slate"></div>
+              <div class="color-swatch graphite"></div>
+            </div>
+          </div>
+
+          <!-- Legs Finish -->
+          <div class="option-section">
+            <label class="option-label">3. Legs Finish</label>
+            <select class="dropdown">
+              <option>Oak Wood</option>
+              <option selected>Steel</option>
+              <option>Walnut Wood</option>
+              <option>Chrome</option>
+            </select>
+          </div>
+
+          <!-- Price and Add to Cart -->
+          <div class="price-section">
+            <div class="price-label">Product Price</div>
+            <div class="price-container">
+              <span class="price-current">$ 200</span>
+              <span class="price-original">$ 240</span>
+            </div>
+            <button class="add-to-cart">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Color swatch selection
+      const swatches = document.querySelectorAll(".color-swatch");
+      swatches.forEach((swatch) => {
+        swatch.addEventListener("click", function () {
+          swatches.forEach((s) => s.classList.remove("selected"));
+          this.classList.add("selected");
+        });
+      });
+
+      // Thumbnail selection
+      const thumbnails = document.querySelectorAll(".thumbnail");
+      const mainImage = document.querySelector(".main-image");
+
+      thumbnails.forEach((thumb) => {
+        thumb.addEventListener("click", function () {
+          thumbnails.forEach((t) => t.classList.remove("active"));
+          this.classList.add("active");
+          const imgSrc = this.querySelector("img").src.replace(
+            "w=100&h=100",
+            "w=800&h=600"
+          );
+          mainImage.src = imgSrc;
+        });
+      });
+
+      // Add to cart
+      document.querySelector(".add-to-cart").addEventListener("click", () => {
+        alert("Product added to cart!");
+      });
+    </script>
+  </body>
+</html>
