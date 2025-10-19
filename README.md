@@ -2,6 +2,8 @@
 
 ## 🧩 Project Overview
 
+https://github.com/user-attachments/assets/62811616-2a09-47de-8cbb-f8c37fdc783e
+
 The **Dynamic UI Editor** is a React-based application that allows users to **customize a given Figma UI design dynamically** without modifying the source code. The editor enables real-time visual changes like typography, colors, layouts, and spacing — all reflected instantly in a live preview.
 
 This project mimics real-world frontend scenarios where clients request quick UI tweaks for dashboards, SaaS tools, or admin panels. It focuses on **dynamic rendering**, **state management**, **responsive design**, and **extensibility**.
