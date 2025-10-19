@@ -13,7 +13,7 @@ export interface TemplateContent {
   css: string;
 }
 
-const TEMPLATES_API_URL = 'https://arnamchaurasiya.github.io/Ikarus3d_Dynamic_UI_Editor/templates.json';
+const TEMPLATES_API_URL = 'https://raw.githubusercontent.com/arnamchaurasiya/Ikarus3d_Dynamic_UI_Editor/main/templates.json';
 
 export const templateService = {
   async fetchTemplates(): Promise<Template[]> {
